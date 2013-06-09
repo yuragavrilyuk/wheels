@@ -1,0 +1,43 @@
+﻿@font-face {
+    font-family: "MarionRegular";
+    font-style: normal;
+    font-weight: normal;
+    src: local("â˜º"), url("../fonts/mariotext_iceland-webfont.woff") format("woff"), url("../fonts/mariotext_iceland-webfont.ttf") format("truetype"), url("../fonts/mariotext_iceland-webfont.svg#webfontJQeM6amP") format("svg");
+}
+body {
+    font: 10pt "MarionRegular";
+    color: #FFFFFF;
+    background-color: #000000;
+}
+div {
+    margin: 0 0 36px 0;
+}
+input {
+    width: 350px;
+    border: none;
+    border-radius: 3px;
+}
+a {
+    cursor: pointer;
+    color: #808080;
+    text-decoration: none;
+}
+.float-left {
+    float: left;
+}
+.clear {
+    clear: both;
+    margin: 0;
+}
+.label {
+    width: 250px;
+}
+.control {
+    width: 400px;
+}
+.target {
+    margin: 0;
+}
+.text {
+    width: 650px;
+}

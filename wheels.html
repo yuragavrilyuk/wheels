@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>wheels</title>
+    <link href="styles/wheels.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="text">
+        <div>
+            since dalai lama declared hard discs having mantra as prayer wheels i decided to write a little script helping you turning your hdd into really powerful prayer wheel.
+        </div>
+        <div>
+            just enter your mantra and output file size that you want to put on your hard disc. your mantra will be repeated maximum times to fit the file size, e.x. mantra size is 40, file size is 130, so it's repeated 3 times and 10 charachers are left.
+        </div>
+        <div>
+            after you enter your data just click "generate" and "download".
+        </div>
+        <div>
+            there is no limit for file size, except your computer's, operating system's and browser's boundaries. i found no definitions of output size limit in internet. it's up to you. my idea is that having 20G (more than 2 billion characters) you can make your 100 characters mantra to be said 2000000000/100=20000000 times a turn, 20 million. for your information your hard disc is spinning 5400 or 7200 times per minute, so let's say 5400 rpm, it's 20000000*5400=108000000000 times a minute. 108 billion times a minute.
+        </div>
+        <div>
+            try making it 100M. success and want more? 500M, etc. you can fill you hard disc drive with desired quantity of mantras by downloading the same file many times, no need to click "generate" again, just "download" as much as you want. 100M? download it 10 times, it's 1G. then copy all of them 20 times, in windows explorer, download them to a new folder, open this folder, ctrl+a (select all), ctrl+c (copy) and ctrl+p (paste) 20 times. and you have your 20G!
+        </div>
+        <div>
+            LET'S DO IT! )
+        </div>
+    </div>
+    <div id="all-controls" class="target" style="display: none;">
+        <div class="float-left label">
+            mantra:
+        </div>
+        <div class="float-left control">
+            <input id="mantra" class="required" type="text" value="OM NAMAH NARAYANA LEGALIZE MARIJUANA" />
+        </div>
+        <div class="clear"></div>
+        <div class="float-left label">
+            output file size (characters):
+        </div>
+        <div class="float-left control">
+            <input id="file-size" class="required number" type="text" value="0" />
+        </div>
+        <div class="clear"></div>
+        <div class="float-left label">
+            <a id="generate">generate</a>
+        </div>
+        <div class="float-left control target">
+            <div id="download-target" style="display: none;">
+                <div class="link">
+                    <a id="download">download</a>
+                </div>
+                <div>
+                    <span>mantra:</span>
+                    <span class="mantra"></span>
+                </div>
+                <div>
+                    <span>mantra size:</span>
+                    <span class="mantra-size"></span>
+                </div>
+                <div>
+                    <span>mantras in file:</span>
+                    <span class="mantras-qty"></span>
+                </div>
+                <div>
+                    <span>file size:</span>
+                    <span class="file-size"></span>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div id="error-message" class="text" style="display: none;">
+
+    </div>
+    <script type="text/javascript" src="scripts/jquery-2.0.1.min.js"></script>
+    <script type="text/javascript" src="scripts/wheels.js"></script>
+</body>
+</html>
