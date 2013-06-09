@@ -55,27 +55,33 @@
     ,
     init: function () {
         wheels.clearMantra();
-        wheels.createFirstDom();
-        if (!wheels.exists("Blob")) {
+        wheels.createDoms();
+        if (!wheels.exists(["Blob"])) {
             wheels.validator.showError(wheels.validator.messages.blobsNotSupported);
             return;
         }
-        wheels.createDoms();
         wheels.doms.all_controls.obj.show();
         wheels.bindEvents();
     }
     ,
-    createFirstDom: function () {
-        wheels.doms.all_controls.obj = $("#" + wheels.doms.all_controls.id);
-    }
-    ,
     createDoms: function () {
-        wheels.doms.generate.obj = $("#" + wheels.doms.generate.id);
-        wheels.doms.download.obj = $("#" + wheels.doms.download.id);
-        wheels.doms.download_target.obj = $("#" + wheels.doms.download_target.id);
-        wheels.doms.mantra.obj = $("#" + wheels.doms.mantra.id);
-        wheels.doms.file_size.obj = $("#" + wheels.doms.file_size.id);
-        wheels.doms.error_message.obj = $("#" + wheels.doms.error_message.id);
+        function create(names) {
+            if (!wheels.exists(names)) {
+                return;
+            }
+            var object = window;
+            for (var i = 0; i < names.length; i++) {
+                object = object[names[i]];
+            }
+            object.obj = $("#" + object.id);
+        }
+        create(["wheels", "doms", "all_controls"]);
+        create(["wheels", "doms", "generate"]);
+        create(["wheels", "doms", "download"]);
+        create(["wheels", "doms", "download_target"]);
+        create(["wheels", "doms", "mantra"]);
+        create(["wheels", "doms", "file_size"]);
+        create(["wheels", "doms", "error_message"]);
     }
     ,
     clearMantra: function () {
@@ -196,15 +202,28 @@
         });
     }
     ,
-    exists: function (name) {
-        try {
-            if (window[name]) {
-                return true;
-            }
-            throw name;
-        } catch (exception) {
+    exists: function (names) {
+        var namesLength = names.length;
+        if (namesLength <= 0) {
             return false;
         }
+        var object = window
+            ,
+            result = true;
+        for (i = 0; i < namesLength; i++) {
+            try {
+                object = object[names[i]];
+                if (!object) {
+                    throw names[i];
+                }
+            } catch (exception) {
+                result = false;
+            }
+            if (!result) {
+                return;
+            }
+        }
+        return result;
     }
 };
 $(document).ready(function () {
